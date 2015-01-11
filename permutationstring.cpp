@@ -1,0 +1,165 @@
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+
+void swap(char *x,char *y)
+{
+	char temp;
+	temp=*x;
+	*x=*y;
+	*y=temp;
+}
+
+void permutation(char *a,int i,int n)
+{
+	int j;
+	if(i==4)
+		{
+			printf("%s",a);
+			printf("\n");
+		}
+	else
+	{
+		for(j=i;j<=n;j++)
+		{
+			swap(a+i,a+j);
+			permutation(a,i+1,n);
+			swap(a+i,a+j);	
+		}
+		
+	}
+}
+
+int main()
+{
+	char a[]="VIVEK";
+	permutation(a,0,4);
+	return 0;
+}
+
+//output:
+
+/*
+
+VIVEK
+VIVKE
+VIEVK
+VIEKV
+VIKEV
+VIKVE
+VVIEK
+VVIKE
+VVEIK
+VVEKI
+VVKEI
+VVKIE
+VEVIK
+VEVKI
+VEIVK
+VEIKV
+VEKIV
+VEKVI
+VKVEI
+VKVIE
+VKEVI
+VKEIV
+VKIEV
+VKIVE
+IVVEK
+IVVKE
+IVEVK
+IVEKV
+IVKEV
+IVKVE
+IVVEK
+IVVKE
+IVEVK
+IVEKV
+IVKEV
+IVKVE
+IEVVK
+IEVKV
+IEVVK
+IEVKV
+IEKVV
+IEKVV
+IKVEV
+IKVVE
+IKEVV
+IKEVV
+IKVEV
+IKVVE
+VIVEK
+VIVKE
+VIEVK
+VIEKV
+VIKEV
+VIKVE
+VVIEK
+VVIKE
+VVEIK
+VVEKI
+VVKEI
+VVKIE
+VEVIK
+VEVKI
+VEIVK
+VEIKV
+VEKIV
+VEKVI
+VKVEI
+VKVIE
+VKEVI
+VKEIV
+VKIEV
+VKIVE
+EIVVK
+EIVKV
+EIVVK
+EIVKV
+EIKVV
+EIKVV
+EVIVK
+EVIKV
+EVVIK
+EVVKI
+EVKVI
+EVKIV
+EVVIK
+EVVKI
+EVIVK
+EVIKV
+EVKIV
+EVKVI
+EKVVI
+EKVIV
+EKVVI
+EKVIV
+EKIVV
+EKIVV
+KIVEV
+KIVVE
+KIEVV
+KIEVV
+KIVEV
+KIVVE
+KVIEV
+KVIVE
+KVEIV
+KVEVI
+KVVEI
+KVVIE
+KEVIV
+KEVVI
+KEIVV
+KEIVV
+KEVIV
+KEVVI
+KVVEI
+KVVIE
+KVEVI
+KVEIV
+KVIEV
+KVIVE
+
+*/

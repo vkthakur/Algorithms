@@ -1,0 +1,68 @@
+#include<iostream>
+#include<stdio.h>
+#include<string.h>
+#include<stack>
+
+int main()
+{
+	int t;
+	scanf("%d",&t);
+
+	while(t--) {
+
+		char str[450];
+		stack<string> st;
+		cin>>str;
+
+		len=strlen(str);
+
+		for(i=0;i<len;i++) {
+
+			if(str[i]! = ')')	{
+
+				st.push(str[i]);
+			}
+			else
+			{	
+				char mystr[450],sign,flag=0;
+				while(st.top!='(')	
+				{
+
+					if(strlen(st.top)==1 && st.top! >=97 && st.top!<=122)
+					{
+						sign=st.top;
+					}
+					else
+					{	flag++;
+
+						if(flag==1)	strcpy(mystr,st.top);
+						else	strcat(mystr,st.top);
+
+						
+					}
+
+					st.pop();	
+					
+				}
+
+				if(st.top=='(')	
+				{
+					st.pop();
+					strcat(mystr,sign);
+					st.push(mystr);
+				}
+				
+				
+			}
+
+		}
+
+		char mystr[450];
+
+		strcpy(mystr,st.top);
+		cout<<mystr<<endl;
+		st.clear();
+	}
+
+	return 0;
+}
